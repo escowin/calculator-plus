@@ -32,8 +32,9 @@ int main()
     // Menu prompt with conditional data handling
     do
     {
-        cout << "\n*******************\n";
-        cout << "Select menu option:\n";
+        cout << "\n*********************\n";
+        cout << "Select menu option:";
+        cout << "\n*********************\n";
         cout << "1. Arithmetic\n";
         cout << "2. Geometry\n";
         cout << "3. Unit conversion\n";
@@ -136,13 +137,34 @@ void arithmetic()
             cout << x << " + " << y << " = " << z << '\n';
             break;
         case 2:
-            cout << "subtraction\n";
+            cout << "\nX - Y = Z\n";
+            cout << "enter X: ";
+            cin >> x;
+            cout << "enter Y: ";
+            cin >> y;
+
+            z = x - y;
+            cout << x << " - " << y << " = " << z << '\n';
             break;
         case 3:
-            cout << "multiplication\n";
+            cout << "\nX * Y = Z\n";
+            cout << "enter X: ";
+            cin >> x;
+            cout << "enter Y: ";
+            cin >> y;
+
+            z = x * y;
+            cout << x << " * " << y << " = " << z << '\n';
             break;
         case 4:
-            cout << "division\n";
+            cout << "\nX / Y = Z\n";
+            cout << "enter X: ";
+            cin >> x;
+            cout << "enter Y: ";
+            cin >> y;
+
+            z = x / y;
+            cout << x << " / " << y << " = " << z << '\n';
             break;
         case 0:
             return;
