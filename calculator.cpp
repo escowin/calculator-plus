@@ -23,7 +23,7 @@ void unitConversion();
 int main()
 {
     string_t app = "calculator++";
-    string_t version = "0.1.2";
+    string_t version = "0.1.3";
     int choice = 0;
 
     // Terminal display
@@ -32,7 +32,8 @@ int main()
     // Menu prompt with conditional data handling
     do
     {
-        cout << "\nSelect menu option:\n";
+        cout << "\n*******************\n";
+        cout << "Select menu option:\n";
         cout << "1. Arithmetic\n";
         cout << "2. Geometry\n";
         cout << "3. Unit conversion\n";
@@ -102,7 +103,53 @@ int currentYear()
 // - Calculator
 void arithmetic()
 {
-    cout << "arithemtic calculator";
+    int choice;
+    double x;
+    double y;
+    double z;
+
+    do
+    {
+        cout << "\n*********************\n";
+        cout << "Arithemtic calculator";
+        cout << "\n*********************\n";
+        cout << "1. Addition (+)\n";
+        cout << "2. Subtraction (-)\n";
+        cout << "3. Multiplication (*)\n";
+        cout << "4. Division (/)\n";
+        cout << "0. Return to previous menu\n";
+        cin >> choice;
+
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch (choice)
+        {
+        case 1:
+            cout << "\nX + Y = Z\n";
+            cout << "enter X: ";
+            cin >> x;
+            cout << "enter Y: ";
+            cin >> y;
+
+            z = x + y;
+            cout << x << " + " << y << " = " << z << '\n';
+            break;
+        case 2:
+            cout << "subtraction\n";
+            break;
+        case 3:
+            cout << "multiplication\n";
+            break;
+        case 4:
+            cout << "division\n";
+            break;
+        case 0:
+            return;
+        default:
+            cout << "Invalid choice\n";
+        }
+    } while (choice != 0);
 }
 
 void geometry()
