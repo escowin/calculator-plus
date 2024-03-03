@@ -23,7 +23,7 @@ void unitConversion();
 int main()
 {
     string_t app = "calculator++";
-    string_t version = "0.1.3";
+    string_t version = "0.1.4";
     int choice = 0;
 
     // Terminal display
@@ -176,7 +176,40 @@ void arithmetic()
 
 void geometry()
 {
-    cout << "geometry calculator";
+    int choice;
+
+    do
+    {
+        cout << "\n*********************\n";
+        cout << "Geometry calculator";
+        cout << "\n*********************\n";
+        cout << "1. Circumference\n";
+        cout << "2. Hypotenuse\n";
+        cout << "3. Area & Volume\n";
+        cout << "0. Return to main menu\n";
+        cin >> choice;
+
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch (choice)
+        {
+        case 1:
+            cout << "circumference\n";
+            break;
+        case 2:
+            cout << "hypotenuse\n";
+            break;
+        case 3:
+            cout << "Area & volume\n";
+            break;
+        case 0:
+            return;
+        default:
+            cout << "Invalid choice\n";
+        }
+
+    } while (choice != 0);
 }
 
 void unitConversion()
