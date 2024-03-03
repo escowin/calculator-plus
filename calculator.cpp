@@ -16,18 +16,52 @@ int currentYear();
 
 // - Calculator functions
 void arithmetic();
-void temperature();
 void geometry();
-int currentYear();
+void unitConversion();
 
 // IV. Entry point
 int main()
 {
     string_t app = "calculator++";
-    string_t version = "0.1.1";
+    string_t version = "0.1.2";
+    int choice = 0;
 
     // Terminal display
     terminalStart(app, version);
+
+    // Menu prompt with conditional data handling
+    do
+    {
+        cout << "\nSelect menu option:\n";
+        cout << "1. Arithmetic\n";
+        cout << "2. Geometry\n";
+        cout << "3. Unit conversion\n";
+        cout << "4. Exit\n";
+        cin >> choice;
+
+        // Clears input buffer, preventing program from breaking if user enters an invalid value
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch (choice)
+        {
+        case 1:
+            arithmetic();
+            break;
+        case 2:
+            geometry();
+            break;
+        case 3:
+            unitConversion();
+            break;
+        case 4:
+            cout << "Goodbye.\n";
+            break;
+        default:
+            cout << "Invalid choice\n";
+        }
+    } while (choice != 4);
+
     terminalFin();
 
     return 0;
@@ -68,13 +102,15 @@ int currentYear()
 // - Calculator
 void arithmetic()
 {
-    return;
+    cout << "arithemtic calculator";
 }
-void temperature()
-{
-    return;
-}
+
 void geometry()
 {
-    return;
+    cout << "geometry calculator";
+}
+
+void unitConversion()
+{
+    cout << "unit conversion calculator";
 }
