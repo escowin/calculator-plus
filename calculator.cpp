@@ -13,6 +13,7 @@ using std::cout;
 void terminalStart(string_t app, string_t ver);
 void terminalFin();
 int currentYear();
+void clearBufferInput();
 
 // - Calculator functions
 void arithmetic();
@@ -41,9 +42,8 @@ int main()
         cout << "4. Exit\n";
         cin >> choice;
 
-        // Clears input buffer, preventing program from breaking if user enters an invalid value
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        // Prevents invalid input from breaking program
+        clearBufferInput();
 
         switch (choice)
         {
@@ -101,6 +101,13 @@ int currentYear()
     return currentYear;
 }
 
+void clearBufferInput()
+{
+    // Clears input buffer, preventing program from breaking if user enters an invalid value
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 // - Calculator
 void arithmetic()
 {
@@ -121,8 +128,7 @@ void arithmetic()
         cout << "0. Return to previous menu\n";
         cin >> choice;
 
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        clearBufferInput();
 
         switch (choice)
         {
@@ -177,6 +183,9 @@ void arithmetic()
 void geometry()
 {
     int choice;
+    double area;
+    double volume;
+    const double PI = 3.14159;
 
     do
     {
@@ -186,24 +195,48 @@ void geometry()
         cout << "1. Circumference\n";
         cout << "2. Hypotenuse\n";
         cout << "3. Area & Volume\n";
-        cout << "0. Return to main menu\n";
+        cout << "4. Return to main menu\n";
         cin >> choice;
 
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        clearBufferInput();
 
         switch (choice)
         {
         case 1:
-            cout << "circumference\n";
+            double r;
+            double c;
+
+            cout << "\nCircumference formula:\n";
+            cout << "\nc = 2pi*r\n";
+            cout << "Enter the radius (r): ";
+            cin >> r;
+
+            // c = 2π*r
+            c = (2 * PI) * r;
+            cout << "Circumference: " << c << '\n';
+
             break;
         case 2:
-            cout << "hypotenuse\n";
+            double sideA;
+            double sideB;
+            double sideC;
+
+            cout << "\nHypotenuse formula:\n";
+            cout << "c = sqrt(a^2 + b^2)\n";
+            cout << "Enter side a: ";
+            cin >> sideA;
+            cout << "Enter side b: ";
+            cin >> sideB;
+
+            // c = √(a^2 + b^2)
+            c = sqrt(pow(sideA, 2) + pow(sideB, 2));
+            cout << "Side c: " << sideC << '\n';
+
             break;
         case 3:
             cout << "Area & volume\n";
             break;
-        case 0:
+        case 4:
             return;
         default:
             cout << "Invalid choice\n";
